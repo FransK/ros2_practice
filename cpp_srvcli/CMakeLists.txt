@@ -22,4 +22,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_executable(server src/add_two_ints_server.cpp)
+ament_target_dependencies(server rclcpp example_interfaces)
+
+install(TARGETS
+  server
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
